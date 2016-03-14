@@ -1,0 +1,17 @@
+---
+
+
+#This is the first play
+#the name of the play is "Copy a file"
+#This play has only one task so far
+
+
+- hosts: localhost
+  name: Copy a file
+  tasks:
+  - name: copy file README to theremote host
+  
+   copy:
+    src: README.md
+    dest: /AnsibleBootCamp
+  

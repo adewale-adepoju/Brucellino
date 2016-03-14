@@ -1,0 +1,34 @@
+---
+
+
+#This is the first play
+#the name of the play is "Copy a file"
+#This play has only one task so far
+
+
+- hosts: localhost
+  name: Copy a file
+  
+  tasks:
+  - name: copy file README to theremote host
+  
+    copy:
+     src: README.md
+     dest: /temp/README.md
+
+- name: Install nginx (Debian)
+  apt:
+   name: nginx
+   state: latest
+   update_cache: yes
+   sudo: true
+   when: ansible_os_family=='Debian'
+- name: Install nginx (RedHat)
+  yum:
+  name: nginx
+  state: latest
+  update_cache: yes
+  sudo: true
+  when: ansible_os_family=='RedHat'
+
+#- name: Add a user
